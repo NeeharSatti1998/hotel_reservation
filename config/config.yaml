@@ -11,18 +11,74 @@ data_processing:
     - market_segment_type
     - repeated_guest
     - booking_status
+    - arrival_year
+    - arrival_month
+    - arrival_date
   numerical_columns:
     - no_of_adults
     - no_of_children
     - no_of_weekend_nights
     - no_of_week_nights
     - lead_time
-    - arrival_year
-    - arrival_month
-    - arrival_date
     - no_of_previous_cancellations
     - no_of_previous_bookings_not_canceled
     - avg_price_per_room
     - no_of_special_requests
   importance : 0.005
+  matching_columns:
+    - no_of_adults
+    - no_of_children
+    - no_of_weekend_nights
+    - no_of_week_nights
+    - room_type_reserved
+    - lead_time
+    - avg_price_per_room
+    - no_of_special_requests
+    - type_of_meal_plan_Meal Plan 2
+    - type_of_meal_plan_Not Selected
+    - required_car_parking_space_1
+    - market_segment_type_Offline
+    - market_segment_type_Online
+    - market_segment_type_other
+    - arrival_year_2018
+    - arrival_month_2
+    - arrival_month_3
+    - arrival_month_4
+    - arrival_month_5
+    - arrival_month_6
+    - arrival_month_7
+    - arrival_month_8
+    - arrival_month_9
+    - arrival_month_10
+    - arrival_month_11
+    - arrival_month_12
+    - arrival_date_mid_month
+    - arrival_date_start_month 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -35,6 +35,19 @@ class DataProcessor:
             logger.info("Converting the numeric into categorical columns where deemed necessarey")
             df['required_car_parking_space'] = df['required_car_parking_space'].astype('object')
             df['repeated_guest'] = df['repeated_guest'].astype('object')
+            df['arrival_year'] = df['arrival_year'].astype('object')
+            df['arrival_month'] = df['arrival_month'].astype('object')
+            
+            arrivate_date_cat = []
+            for i in df['arrival_date']:
+                if i <=12:
+                    arrivate_date_cat.append('start_month')
+                elif i>12 and i<21:
+                    arrivate_date_cat.append('mid_month')
+                else:
+                    arrivate_date_cat.append('end_month')
+
+            df['arrival_date'] = arrivate_date_cat
 
             cat_cols = self.config["data_processing"] ["categorical_columns"]
             num_cols = self.config["data_processing"] ["numerical_columns"]
@@ -52,7 +65,7 @@ class DataProcessor:
             logger.info("group rare categories into others")
             df['market_segment_type'] = df['market_segment_type'].replace(['Corporate','Aviation','Complimentary'],'other')
 
-            df=pd.get_dummies(df,columns=['type_of_meal_plan','required_car_parking_space','market_segment_type','repeated_guest',],drop_first=True)
+            df=pd.get_dummies(df,columns=['type_of_meal_plan','required_car_parking_space','market_segment_type','repeated_guest','arrival_year','arrival_month','arrival_date'],drop_first=True)
             df['booking_status'] = df['booking_status'].map({'Not_Canceled':0,'Canceled' : 1})
 
             logger.info("Converting boolean to integer")
@@ -96,7 +109,7 @@ class DataProcessor:
     def feauture_selection(self,df):
 
         try:
-            logger.info("Starting feaute selection")
+            logger.info("Starting feature selection")
 
             rf = RandomForestClassifier()
             x = df.drop(columns=['booking_status'], axis=1)
@@ -165,19 +178,3 @@ class DataProcessor:
 if __name__ == '__main__':
     processor = DataProcessor(TRAIN_FILE_PATH,TEST_FILE_PATH,CONFIG_PATH,PROCESSED_DIR)
     processor.process()
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
