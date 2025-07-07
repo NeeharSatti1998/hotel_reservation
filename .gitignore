@@ -3,3 +3,4 @@ mlruns/
 logs/
 hotel_reservation.egg-info/
 gentle-oxygen-*.json
+jenkins_commands.txt
