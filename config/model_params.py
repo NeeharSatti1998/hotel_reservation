@@ -7,8 +7,8 @@ LIGHTGBM_PARAMS = {
     'learning_rate' : uniform(0.01,0.3),
     'n_estimators' : randint(100,1000),
     'min_child_sample' : randint(10,50),
-    'subsample' : uniform(0.6,1),
-    'colsample_tree' : uniform(0.5,1)
+    'subsample' : uniform(0.6,0.4),
+    'colsample_tree' : uniform(0.5,0.5)
 }
 
 
