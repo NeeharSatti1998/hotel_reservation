@@ -36,6 +36,15 @@ class ModelTraining:
             test = load_data(self.test_path)
 
             x_train = train.drop(columns=['booking_status'],axis = 1)
+            print("Train data shape:", x_train.shape)
+            print("Train preview:")
+            print(x_train.head())
+
+            print("Describe:")
+            print(x_train.describe())
+
+            print("Unique value count per column:")
+            print(x_train.nunique())
             y_train = train['booking_status']
             x_test = test.drop(columns=['booking_status'],axis = 1)
             y_test = test['booking_status']

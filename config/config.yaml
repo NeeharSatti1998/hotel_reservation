@@ -24,7 +24,7 @@ data_processing:
     - no_of_previous_bookings_not_canceled
     - avg_price_per_room
     - no_of_special_requests
-  importance : 0.005
+  importance : 0.001
   matching_columns:
     - no_of_adults
     - no_of_children
